@@ -1,0 +1,28 @@
+m=int(input("Enter the m value:"))
+n=int(input("Enter the n value:"))
+
+def prime(m):
+    if(m<=1):
+        return False
+    if m<=3:
+        return True
+    if m%2==0 or m%3==0:
+        return False
+    i=5
+    while i*i<=m:
+        if m%i==0 or m%(i+2)==0:
+            return False
+        i=i+6
+    return True
+
+lis=[0,]
+for i in range(m,n+1):
+    if(prime(i)):
+        lis.append(i)
+print(lis)
+
+print("SUPER PRIMES ARE:")
+for i in range(1, len(lis)):
+    if (prime(i) and prime(lis[i])):
+        print(i, lis[i])
+
